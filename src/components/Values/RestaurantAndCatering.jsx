@@ -12,7 +12,7 @@ export default function ValueRestaurantAndCatering() {
           autoPlay
           muted
           loop
-          src="videourlhere"
+          src="https://player.cloudinary.com/embed/?cloud_name=dmtl2pn72&public_id=Catering_btjsmy&profile=cld-default"
         ></video>
       </div>
     </div>
