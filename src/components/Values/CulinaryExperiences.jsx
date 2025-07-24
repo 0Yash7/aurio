@@ -14,7 +14,6 @@ import styles from "./CulinaryExperiences.module.css";
 import EventCard from "./EventCard";
 import Testimonials from "./Testimonials";
 import ImageGallery from "./ImageGalary";
-import CateringVideo from "../../assets/video/Catering.MOV";
 import AureoMenu from "./AureoMenu";
 
 // Direct image imports
