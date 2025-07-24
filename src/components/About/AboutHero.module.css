@@ -1,0 +1,158 @@
+.AboutHero {
+  padding: 40px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b1b3c;
+  position: relative;
+  flex-direction: column;
+  z-index: 9;
+}
+
+.AboutHero .text {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.AboutHero .hat {
+  width: 100px;
+  height: auto;
+  opacity: 0.2;
+  margin-left: 30px;
+}
+
+.AboutHero h1 {
+  font-family: PT-serif;
+  font-style: italic;
+  font-size: 50px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.AboutHero p {
+  margin-top: 20px;
+  z-index: 2;
+  width: 50%;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.AboutHero .mainimg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AboutHero .MainImg {
+  border-top-right-radius: 200px;
+  border-top-left-radius: 200px;
+  z-index: 2;
+  height: 80vh;
+  margin-top: 50px;
+  object-fit: cover;
+  width: 90%;
+}
+
+.AboutHero::before {
+  content: "";
+  width: 100vw;
+  height: 60vh;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: #f4ebe5;
+}
+
+/* ✅ Responsive Styles */
+@media (max-width: 1024px) {
+  .AboutHero {
+    padding: 40px 60px;
+  }
+
+  .AboutHero p {
+    width: 70%;
+    font-size: 18px;
+  }
+
+  .AboutHero h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .AboutHero {
+    padding: 30px 40px;
+  }
+
+  .AboutHero h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .AboutHero p {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .AboutHero .MainImg {
+    height: 60vh;
+    width: 95%;
+  }
+
+  .AboutHero .hat {
+    width: 80px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .AboutHero {
+    padding: 20px 20px;
+  }
+
+  .AboutHero .text {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .AboutHero .hat {
+    width: 60px;
+    margin-left: 0;
+    margin-top: 10px;
+    order: 2;
+  }
+
+  .AboutHero h1 {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 10px;
+    order: 1;
+  }
+
+  .AboutHero p {
+    font-size: 14px;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 30px;
+  }
+
+  .AboutHero .MainImg {
+    height: 40vh;
+    width: 100%;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 100px;
+  }
+
+  .AboutHero::before {
+    height: 30vh;
+  }
+}

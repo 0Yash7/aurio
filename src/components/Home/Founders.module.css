@@ -1,0 +1,137 @@
+.founderContainer {
+  padding: 20px 100px;
+  background: white;
+  width: 100%;
+}
+
+.founderContainer h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.founderContainer .founder {
+  padding: 50px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  min-height: 500px;
+}
+
+.founderContainer .pfp {
+  height: 500px;
+  width: 560px;
+}
+
+.founderContainer .img {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 500px 500px 0px 0px;
+}
+
+.founderContainer .bg {
+  top: 0%;
+  position: absolute;
+}
+
+.founderContainer .about {
+  width: 500px;
+}
+
+.founderContainer h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 60px;
+  text-align: left;
+}
+
+.founderContainer p {
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+@media (max-width: 812px) {
+  .founderContainer {
+    padding: 20px 30px;
+  }
+
+  .founderContainer .founder {
+    padding: 0;
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+  }
+
+  .founderContainer .pfp {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  .founderContainer .img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    object-fit: cover;
+    border-radius: 500px 500px 0 0;
+  }
+
+  .founderContainer .bg {
+    width: 100%;
+    top: -20%;
+    left: 5%;
+  }
+
+  .founderContainer .about {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .founderContainer h3 {
+    text-align: center;
+    font-size: 45px;
+  }
+
+  .founderContainer p {
+    text-align: center;
+    font-size: 14px; /* Reduced font size for mobile */
+    line-height: 22px; /* Improved line-height for readability */
+    padding: 0 10px; /* Add padding for better text alignment */
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+@media (max-width: 480px) {
+  .founderContainer h1 {
+    font-size: 36px; /* Adjusted heading size for small screens */
+    margin-bottom: 50px; /* Reduced margin to fit better on small screens */
+  }
+
+  .founderContainer h3 {
+    font-size: 36px; /* Adjust heading size for very small screens */
+  }
+
+  .founderContainer p {
+    font-size: 12px; /* Even smaller font size for very small screens */
+    line-height: 18px; /* Smaller line-height to fit better */
+  }
+}
+
+.Founders .founder h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  margin-bottom: 1rem;
+}

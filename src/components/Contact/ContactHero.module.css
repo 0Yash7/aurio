@@ -1,0 +1,192 @@
+.ContactHero {
+  background-image: url("../../assets/images/contact/Hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 75vh;
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.ContactHero h1 {
+  margin-top: 120px;
+  font-style: italic;
+  font-size: 60px;
+  text-align: center;
+}
+
+.ContactHero p {
+  font-family: verdana;
+  font-size: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.ContactHero img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ContactHero .four {
+  left: 70%;
+  width: 140px;
+  height: 140px;
+  bottom: 0;
+}
+
+.ContactHero .three {
+  left: 25%;
+  width: 170px;
+  height: 170px;
+  bottom: 0;
+}
+
+.ContactHero .one {
+  left: 7%;
+  width: 80px;
+  height: 80px;
+  top: 5%;
+}
+
+.ContactHero .two {
+  left: 85%;
+  width: 100px;
+  height: 100px;
+  top: 20%;
+}
+
+.ContactHero::before {
+  content: "";
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #0a2554;
+  bottom: 10%;
+  left: -5%;
+  position: absolute;
+}
+
+.ContactHero::after {
+  content: "";
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  right: -7%;
+  background: #0a2554;
+  position: absolute;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .ContactHero h1 {
+    font-size: 50px;
+  }
+
+  .ContactHero p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ContactHero {
+    height: 60vh;
+    margin-bottom: 60px;
+  }
+
+  .ContactHero h1 {
+    font-size: 40px;
+    margin-top: 80px;
+  }
+
+  .ContactHero p {
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+
+  .ContactHero .four {
+    width: 100px;
+    height: 100px;
+    left: 80%;
+  }
+
+  .ContactHero .three {
+    width: 120px;
+    height: 120px;
+    left: 20%;
+  }
+
+  .ContactHero .one {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ContactHero .two {
+    width: 80px;
+    height: 80px;
+    left: 80%;
+  }
+
+  .ContactHero::before {
+    width: 150px;
+    height: 150px;
+  }
+
+  .ContactHero::after {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ContactHero {
+    height: 50vh;
+    margin-bottom: 40px;
+  }
+
+  .ContactHero h1 {
+    font-size: 32px;
+    margin-top: 60px;
+  }
+
+  .ContactHero p {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  .ContactHero .four {
+    width: 80px;
+    height: 80px;
+  }
+
+  .ContactHero .three {
+    width: 100px;
+    height: 100px;
+  }
+
+  .ContactHero .one {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ContactHero .two {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ContactHero::before {
+    width: 120px;
+    height: 120px;
+  }
+
+  .ContactHero::after {
+    width: 80px;
+    height: 80px;
+  }
+}

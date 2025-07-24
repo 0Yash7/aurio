@@ -1,0 +1,358 @@
+.culinaryExperiences {
+  position: relative;
+  width: 100%;
+  color: white;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 27, 60, 0.5),
+    rgba(11, 27, 60, 0.7)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 800px;
+}
+
+.heroContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.heroContent h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background-color: #d4af37;
+}
+
+.heroContent p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  transition-delay: 0.2s;
+}
+
+.blueSection {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-image: url("../../assets/images/values/BG2.JPG");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 6rem 2rem;
+}
+
+.blueSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 27, 60, 0.85),
+    rgba(11, 27, 60, 0.95)
+  );
+}
+
+.blueContent {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 1;
+}
+
+.blueHeading {
+  font-size: 2.8rem;
+  color: white;
+  margin-bottom: 2rem;
+  font-family: "Cookie", cursive;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.blueHeading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background-color: #d4af37;
+}
+
+.blueText {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.blueText:last-child {
+  margin-bottom: 0;
+}
+
+.eventsContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contentContainer {
+  background-color: #0b1b3c;
+  padding: 4rem 2rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-style: italic;
+  color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+}
+
+.sectionDescription {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.ctaButton {
+  background-color: #c08a64;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  text-decoration: none;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.ctaButton:hover {
+  background-color: #a27b5f;
+  color: #ffffff;
+}
+
+.aboutSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animateItem {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.animateItem.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 40px;
+  background-color: #0b1b3c;
+}
+
+.gridItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gridItem:hover {
+  transform: scale(1.05);
+}
+
+.gridItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gridItem .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(11, 27, 60, 0.9), transparent);
+  padding: 20px;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gridItem:hover .overlay {
+  transform: translateY(0);
+}
+
+.gridItem span {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+  .imageGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imageGrid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin: 50px 0;
+  padding: 0 20px;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+}
+
+.featureIcon {
+  width: 60px;
+  height: 60px;
+  background: #d4af37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+}
+
+.featureCard h4 {
+  color: #d4af37;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+.featureCard p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-family: "Times New Roman", Times, serif;
+}
+
+@media screen and (max-width: 1024px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}

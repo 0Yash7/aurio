@@ -1,0 +1,120 @@
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+  background: white;
+}
+
+.heading {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  text-align: center;
+}
+
+.testimonialCard {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  min-height: 50vh;
+  min-width: 50vw;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 700px;
+  position: relative;
+}
+
+.arrowButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.arrowButton:hover {
+  color: #555;
+}
+
+.content {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.customerImage {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.customerName {
+  margin-top: 50px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #111;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #bbb;
+}
+
+.active {
+  background-color: #c49362; /* Gold-ish active dot */
+}
+
+@media (max-width: 900px) {
+  .customerImage {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media (max-width: 800px) {
+  .content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 550px) {
+  .sliderContainer {
+    padding: 20px;
+  }
+}

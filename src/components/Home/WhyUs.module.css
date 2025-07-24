@@ -1,0 +1,49 @@
+.whyus {
+  background: white;
+  padding: 20px 100px;
+  position: relative;
+  overflow: hidden;
+}
+.whyus h1 {
+  font-size: 50px;
+  margin-top: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+.whyus::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  background: #c0d8ff;
+  opacity: 22%;
+  border-radius: 50%;
+  top: -15%;
+  left: -10%;
+  z-index: 0;
+}
+.whyus::after {
+  content: "";
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  background: #c0d8ff;
+  opacity: 22%;
+  border-radius: 50%;
+  bottom: -15%;
+  right: -10%;
+  z-index: 0;
+}
+
+@media (width < 600px) {
+  .whyus {
+    padding: 20px 20px;
+  }
+
+  .whyus::before,
+  .whyus::after {
+    width: 200px;
+    height: 200px;
+  }
+}

@@ -1,0 +1,378 @@
+.BandC {
+    position: relative;
+    background: linear-gradient(135deg, #0b1b3c 0%, #071A3B 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 0;
+    margin-top: -50px;
+}
+
+.BandC img {
+    height: 320px;
+    object-fit: cover;
+}
+
+.BandC h1 {
+    margin-left: 30px;
+    font-style: italic;
+    font-size: 50px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.BandC .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: -20px;
+}
+
+.BandC .left,
+.BandC .right {
+    width: 50vw;
+    padding: 40px 100px;
+}
+
+.BandC .images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.BandC .images .top {
+    display: flex;
+}
+
+.BandC .images .top .topright {
+    display: flex;
+    flex-direction: column;
+}
+
+.BandC .images .top img {
+    margin-left: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 20vw;
+}
+
+.BandC .topright img {
+    height: 150px;
+}
+
+.BandC .description {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.BandC .description p {
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    text-align: left;
+    line-height: 1.8;
+    color: inherit;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.BandC .description p:first-child {
+    font-size: 26px;
+    font-weight: 600;
+    color: #C08A64;
+    margin-bottom: 10px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.BandC .description p:nth-child(2) {
+    font-size: 20px;
+    font-weight: 500;
+    color: inherit;
+    opacity: 0.95;
+    border-left: 4px solid #C08A64;
+    padding-left: 20px;
+    background: linear-gradient(to right, rgba(192, 138, 100, 0.1), transparent);
+}
+
+.BandC .description p:nth-child(3) {
+    font-size: 18px;
+    font-weight: 400;
+    color: inherit;
+    opacity: 0.9;
+    background: rgba(192, 138, 100, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.BandC .description p:last-child {
+    font-size: 17px;
+    font-weight: 400;
+    color: inherit;
+    opacity: 0.85;
+    font-style: italic;
+    border-bottom: 2px solid #C08A64;
+    padding-bottom: 10px;
+}
+
+.BandC p {
+    font-size: 18px;
+    padding: 30px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    line-height: 1.8;
+    color: inherit;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.BandC p::first-letter {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    float: none;
+    margin-right: 0;
+    line-height: inherit;
+}
+
+.BandC button {
+    margin-left: 30px;
+    padding: 15px 40px;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background: #C08A64;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.BandC .bottom img {
+    width: 35.5vw;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.BandC .bottom video {
+    width: 35.5vw;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .BandC {
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .BandC h1 {
+        font-size: 30px;
+        margin: 30px 20px 20px;
+        text-align: center;
+    }
+
+    .BandC .card {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .BandC .left,
+    .BandC .right {
+        width: 100%;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .BandC .images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .BandC .images .top {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .BandC .images .top img {
+        width: 100%;
+        margin: 10px 0;
+        display: block;
+    }
+
+    .BandC .topright {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .BandC .topright img {
+        height: 180px;
+        width: 100%;
+        margin: 10px 0;
+        display: block;
+    }
+
+    .BandC .bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .BandC .bottom img {
+        width: 100%;
+        margin: 10px 0;
+        display: block;
+    }
+
+    .BandC .bottom video {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin: 10px 0;
+        display: block;
+    }
+
+    .BandC .description p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .BandC .description p:first-child {
+        font-size: 22px;
+    }
+
+    .BandC .description p:nth-child(2) {
+        font-size: 18px;
+        padding-left: 15px;
+    }
+
+    .BandC .description p:nth-child(3) {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .BandC .description p:last-child {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .BandC {
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .BandC h1 {
+        font-size: 24px;
+        margin: 20px 15px 10px;
+        text-align: center;
+    }
+
+    .BandC .card {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .BandC .left,
+    .BandC .right {
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .BandC .images {
+        gap: 10px;
+        padding: 0;
+    }
+
+    .BandC .images .top img {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .BandC .topright img {
+        height: 200px;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .BandC .bottom {
+        padding: 0;
+    }
+
+    .BandC .bottom img {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .BandC .bottom video {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin: 10px 0;
+    }
+
+    .BandC .description p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .BandC .description p:first-child {
+        font-size: 20px;
+    }
+
+    .BandC .description p:nth-child(2) {
+        font-size: 16px;
+        padding-left: 12px;
+    }
+
+    .BandC .description p:nth-child(3) {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .BandC .description p:last-child {
+        font-size: 14px;
+    }
+}
+
+/* --- Side-by-side text layout for Bakery & Confectionary and Catering --- */
+.textSideBySide {}
+.faintLabel {}
+.sideBySideDesc {}
+.sideBySideDesc p {}
+.sideBySideDesc button {}
+@media screen and (max-width: 900px) {
+  .BandC .card {}
+  .sideBySideDesc {}
+  .textSideBySide {}
+  .faintLabel {}
+}

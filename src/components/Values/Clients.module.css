@@ -1,0 +1,91 @@
+.clients {
+  padding: 40px 100px;
+  position: relative;
+}
+.clients h1 {
+  font-size: 50px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.clients .cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 70px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.clients .card {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.clients img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.clients h2 {
+  font-size: 23px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.clients p {
+  font-size: 15px;
+  font-family: verdana;
+  margin-top: 0;
+  width: 100%;
+  color: #666;
+}
+
+/* Tablet and below adjustments */
+@media (max-width: 1024px) {
+  .clients {
+    padding: 40px 50px;
+  }
+
+  .clients h1 {
+    font-size: 40px;
+  }
+
+  .clients .cards {
+    gap: 30px;
+  }
+
+  .clients .card {
+    flex: 0 0 calc(50% - 15px);
+  }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .clients {
+    padding: 30px 20px;
+  }
+
+  .clients h1 {
+    font-size: 32px;
+  }
+
+  .clients .cards {
+    margin-top: 40px;
+    gap: 30px;
+  }
+
+  .clients .card {
+    flex: 0 0 100%;
+  }
+
+  .clients h2 {
+    font-size: 20px;
+  }
+
+  .clients p {
+    font-size: 14px;
+  }
+}

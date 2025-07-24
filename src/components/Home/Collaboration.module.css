@@ -1,0 +1,93 @@
+.Collaboration {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  overflow: hidden; /* Important to hide the overflow */
+  text-align: center;
+}
+
+.Collaboration h3 {
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.customers {
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logos {
+  display: flex;
+  width: max-content; /* Important: allow logos to go beyond the container */
+  animation: slide 15s linear infinite; /* Increased from 5s to 15s for slower scrolling */
+}
+
+.logos img {
+  height: 80px;
+  margin: 0 2rem;
+  width: 10vw;
+  object-fit: contain;
+}
+
+/* The magic: Keyframes for continuous sliding */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .Collaboration {
+    padding: 3rem 1.5rem;
+  }
+
+  .Collaboration h3 {
+    font-size: 1.75rem;
+  }
+
+  .logos img {
+    width: 12vw;
+    height: 70px;
+    margin: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .Collaboration {
+    padding: 2.5rem 1rem;
+  }
+
+  .Collaboration h3 {
+    font-size: 1.5rem;
+  }
+
+  .logos img {
+    width: 16vw;
+    height: 60px;
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Collaboration {
+    padding: 2rem 0.5rem;
+  }
+
+  .Collaboration h3 {
+    font-size: 1.25rem;
+  }
+
+  .logos img {
+    width: 20vw;
+    height: 50px;
+    margin: 0 0.5rem;
+  }
+}

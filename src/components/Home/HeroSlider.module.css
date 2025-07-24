@@ -1,0 +1,241 @@
+.sliderContainer .heroSlider {
+  display: flex;
+  gap: 30px;
+  padding-left: 25px;
+  z-index: 9;
+  margin-bottom: 100px;
+  overflow: hidden;
+}
+
+.sliderContainer {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.sliderContainer .container {
+  display: flex;
+  gap: 30px;
+  animation: sliderAnimation 10s linear infinite;
+}
+
+.sliderContainer .image {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  opacity: 0.9;
+  border-radius: 10px;
+}
+
+.sliderContainer .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  padding: 30px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sliderContainer .title {
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  margin: 0;
+}
+
+.sliderContainer .description {
+  width: 20%;
+  font-size: 16px;
+  margin-top: 5px;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+}
+
+.sliderContainer .icon {
+  width: 50px;
+  margin-top: 20px;
+}
+
+.sliderContainer .heroSlider::before,
+.sliderContainer .heroSlider::after {
+  content: "";
+  height: 100px;
+  background: #0b1b3c;
+  position: absolute;
+  border-radius: 50%;
+  width: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.sliderContainer .heroSlider::before {
+  top: -20%;
+}
+
+.sliderContainer .heroSlider::after {
+  top: 90%;
+  background-color: white;
+}
+.sliderContainer::before {
+  content: "";
+  position: absolute;
+  width: 110vw;
+  height: 50vh;
+  background: white;
+  top: 50%;
+  z-index: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+@keyframes sliderAnimation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - 30px));
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .sliderContainer .image {
+    width: 280px;
+    height: 240px;
+  }
+
+  .sliderContainer .title {
+    font-size: 32px;
+  }
+
+  .sliderContainer .description {
+    font-size: 14px;
+  }
+
+  .sliderContainer .icon {
+    width: 40px;
+    margin-top: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sliderContainer {
+    height: auto;
+    padding: 20px 0;
+    margin-bottom: 40px;
+    background: #0b1b3c;
+  }
+
+  .sliderContainer .heroSlider {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-bottom: 0;
+    overflow: visible;
+  }
+
+  .sliderContainer .container {
+    flex-direction: column;
+    gap: 8px;
+    animation: none;
+    padding: 0 15px;
+    background: #0b1b3c;
+  }
+
+  .sliderContainer .image {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .sliderContainer .content {
+    position: relative;
+    padding: 10px 0;
+    text-align: center;
+    background: #0b1b3c;
+  }
+
+  .sliderContainer .title {
+    font-size: 24px;
+    margin-bottom: 6px;
+    color: white;
+  }
+
+  .sliderContainer .description {
+    width: 100%;
+    font-size: 14px;
+    margin: 0 auto;
+    line-height: 1.4;
+    color: white;
+  }
+
+  .sliderContainer .icon {
+    width: 30px;
+    margin: 12px auto 0;
+    display: block;
+  }
+
+  /* Remove decorative elements on mobile */
+  .sliderContainer .heroSlider::before,
+  .sliderContainer .heroSlider::after,
+  .sliderContainer::before {
+    display: none;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .sliderContainer {
+    padding: 15px 0;
+    background: #0b1b3c;
+  }
+
+  .sliderContainer .container {
+    gap: 6px;
+    padding: 0 12px;
+    background: #0b1b3c;
+  }
+
+  .sliderContainer .image {
+    height: 180px;
+  }
+
+  .sliderContainer .title {
+    font-size: 22px;
+    color: white;
+  }
+
+  .sliderContainer .description {
+    font-size: 13px;
+    color: white;
+  }
+
+  .sliderContainer .icon {
+    width: 25px;
+    margin-top: 10px;
+  }
+}
+
+.heroSlider .text h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.heroSlider .text p {
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}

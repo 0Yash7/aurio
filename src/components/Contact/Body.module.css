@@ -1,0 +1,350 @@
+.ContactBody {
+  position: relative;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #ffffff;
+  min-height: 100vh;
+  align-items: flex-start;
+}
+
+.ContactBody .left {
+  flex: 1;
+  background: transparent;
+  border-radius: 0;
+  padding: 20px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ContactBody .left h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #b26732;
+  font-weight: 700;
+}
+
+.ContactBody .left > p {
+  font-family: verdana;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.ContactBody .infoContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ContactBody .infoItems {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.ContactBody .infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.ContactBody .infoItem:hover {
+  background: rgba(178, 103, 50, 0.05);
+}
+
+.ContactBody .infoItem img {
+  width: 24px;
+  height: 24px;
+  padding: 10px;
+  background: #b26732;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.ContactBody .infoContent {
+  flex: 1;
+}
+
+.ContactBody .infoContent h3 {
+  font-size: 18px;
+  color: #b26732;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.ContactBody .infoContent p {
+  font-family: verdana;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.5;
+  margin: 0 0 5px 0;
+}
+
+.ContactBody .infoContent span {
+  font-family: verdana;
+  font-size: 14px;
+  color: #666;
+  display: block;
+  line-height: 1.4;
+}
+
+.ContactBody .right {
+  flex: 1;
+  background: #b26732;
+  border-radius: 15px;
+  color: #ffffff;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(178, 103, 50, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ContactBody .contactTitle {
+  font-size: 32px;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.ContactBody .contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.ContactBody .formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ContactBody .contactForm label {
+  font-size: 16px;
+  font-family: "Verdana", sans-serif;
+  color: #ffffff;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.ContactBody .contactForm input,
+.ContactBody .contactForm textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0;
+  color: #ffffff;
+  padding: 12px 0;
+  font-size: 16px;
+  outline: none;
+  font-family: "Verdana", sans-serif;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.ContactBody .contactForm input:focus,
+.ContactBody .contactForm textarea:focus {
+  border-bottom-color: #ffffff;
+  background: transparent;
+}
+
+.ContactBody .contactForm textarea {
+  resize: vertical;
+  min-height: 120px;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.ContactBody .contactForm input::placeholder,
+.ContactBody .contactForm textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ContactBody .sendButton {
+  width: 180px;
+  padding: 15px 0;
+  border: none;
+  border-radius: 25px;
+  background: #ffffff;
+  color: #b26732;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.ContactBody .sendButton:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ContactBody .socialLinks {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.ContactBody .socialLinks a {
+  color: #b26732;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: rgba(178, 103, 50, 0.1);
+}
+
+.ContactBody .socialLinks a:hover {
+  color: #ffffff;
+  background: #b26732;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .ContactBody {
+    padding: 20px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ContactBody {
+    flex-direction: column;
+    padding: 15px;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .ContactBody .left,
+  .ContactBody .right {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .ContactBody .infoContainer {
+    gap: 20px;
+  }
+
+  .ContactBody .left h2,
+  .ContactBody .contactTitle {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+
+  .ContactBody .left > p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .ContactBody .infoItem {
+    padding: 12px;
+    gap: 15px;
+  }
+
+  .ContactBody .infoContent h3 {
+    font-size: 16px;
+  }
+
+  .ContactBody .infoContent p,
+  .ContactBody .infoContent span {
+    font-size: 14px;
+  }
+
+  .ContactBody .contactForm {
+    gap: 15px;
+  }
+
+  .ContactBody .formFields {
+    gap: 15px;
+  }
+
+  .ContactBody .contactForm label {
+    font-size: 14px;
+  }
+
+  .ContactBody .contactForm input,
+  .ContactBody .contactForm textarea {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .ContactBody .sendButton {
+    width: 160px;
+    font-size: 14px;
+    padding: 12px 0;
+    align-self: center;
+  }
+
+  .ContactBody .socialLinks {
+    gap: 12px;
+  }
+
+  .ContactBody .socialLinks a {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ContactBody {
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .ContactBody .left,
+  .ContactBody .right {
+    padding: 12px;
+  }
+
+  .ContactBody .left h2,
+  .ContactBody .contactTitle {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .ContactBody .infoItem {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .ContactBody .infoItem img {
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+  }
+
+  .ContactBody .contactForm {
+    gap: 12px;
+  }
+
+  .ContactBody .formFields {
+    gap: 12px;
+  }
+
+  .ContactBody .contactForm input,
+  .ContactBody .contactForm textarea {
+    padding: 8px 0;
+  }
+
+  .ContactBody .sendButton {
+    width: 140px;
+    padding: 10px 0;
+  }
+}

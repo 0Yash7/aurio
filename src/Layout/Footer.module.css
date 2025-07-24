@@ -1,0 +1,197 @@
+.footer {
+  background-color: #0b1b3c;
+  color: #ffffff;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  width: 100%;
+}
+
+.footerTop {
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footerBottom {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.footerBottom p {
+  color: #bbb;
+  font-size: 14px;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.footerLogo {
+  flex: 1 1 250px;
+}
+
+.footerLogo img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 100px;
+}
+
+.footerLogo p {
+  font-size: 14px;
+  color: #bbb;
+  line-height: 1.5;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.socialLinks a {
+  color: #bbb;
+  transition: color 0.3s;
+}
+
+.socialLinks a:hover {
+  color: #ffffff;
+}
+
+.footerLinks {
+  flex: 1 1 150px;
+}
+
+.footerLinks h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footerLinks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerLinks ul li {
+  margin-bottom: 10px;
+}
+
+.footerLinks ul li a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footerLinks ul li a:hover {
+  color: #ffffff;
+}
+
+.contactInfo {
+  flex: 1 1 200px;
+}
+
+.contactInfo h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.contactInfo ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactInfo ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: #bbb;
+  font-size: 14px;
+}
+
+.newsletter {
+  flex: 1 1 250px;
+}
+
+.newsletter h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.newsletter p {
+  color: #bbb;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletterForm input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.newsletterForm input::placeholder {
+  color: #bbb;
+}
+
+.newsletterForm button {
+  padding: 10px 20px;
+  background: #c08a64;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletterForm button:hover {
+  background: #a77b5f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerLinks,
+  .contactInfo,
+  .newsletter {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .contactInfo ul li {
+    justify-content: center;
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+  }
+
+  .newsletterForm button {
+    width: 100%;
+  }
+}

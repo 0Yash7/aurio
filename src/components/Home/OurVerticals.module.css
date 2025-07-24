@@ -1,0 +1,307 @@
+.verticals {
+  background: #191d24;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  padding: 40px 100px;
+  min-height: 100vh;
+}
+
+.verticals h3 {
+  text-align: center;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  font-size: 40px;
+}
+
+.verticals h2 {
+  text-align: center;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  display: flex;
+  font-size: 40px;
+}
+
+.verticals p {
+  margin-top: 30px;
+  width: 80%;
+  text-align: center;
+}
+
+.verticals button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  color: white;
+  background: #c08a64;
+  border: none;
+  border-radius: 50px;
+}
+
+.verticals .mobileContent {
+  display: block;
+}
+
+.verticals .mainImg {
+  margin-top: 50px;
+  width: 70vw;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.verticals .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.verticals .text {
+  background: #191d24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 35vw;
+}
+
+.verticals .one {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.verticals .text p {
+  text-align: left;
+}
+
+.verticals .images {
+  width: 35vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.verticals .images div {
+  background: #191d24;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.verticals .images img {
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.verticals::before {
+  /* content: "";
+    width: 100vw;
+    height: 40vh;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: white; */
+}
+
+/* Tablet and below adjustments */
+@media (max-width: 1000px) {
+  .verticals::before {
+    /* height: 45vh; */
+  }
+
+  .verticals {
+    padding: 30px 50px;
+  }
+
+  .verticals h3,
+  .verticals h2 {
+    font-size: 36px;
+  }
+
+  .verticals .mainImg {
+    width: 85vw;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .verticals {
+    padding: 20px;
+  }
+
+  .verticals h3,
+  .verticals h2 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .verticals p {
+    width: 100%;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .verticals button {
+    margin-top: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .verticals .mobileContent {
+    display: block;
+  }
+
+  .verticals .content {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .verticals .text {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .verticals .text p {
+    text-align: center;
+    width: 100%;
+  }
+
+  .verticals .images {
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .verticals .images div {
+    padding-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .verticals .images img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .verticals .mainImg {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .verticals::before {
+    /* height: 30vh; */
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .verticals {
+    padding: 15px;
+  }
+
+  .verticals h3,
+  .verticals h2 {
+    font-size: 24px;
+  }
+
+  .verticals p {
+    font-size: 13px;
+    margin-top: 15px;
+  }
+
+  .verticals button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .verticals .mainImg {
+    margin-top: 15px;
+  }
+
+  .verticals::before {
+    /* height: 25vh; */
+  }
+}
+
+.OurVerticals h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.OurVerticals .card h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.OurVerticals .card p {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Responsive styles for OurVerticals component */
+@media (max-width: 768px) {
+  .OurVerticals h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .OurVerticals .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .OurVerticals .card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .OurVerticals h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .OurVerticals .card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .OurVerticals .card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
