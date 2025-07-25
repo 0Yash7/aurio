@@ -1,24 +1,11 @@
-import { useRef, useState } from "react";
-import {
-  VerticalBakery1,
-  VerticalBakery2,
-  VerticalBakery3,
-  VerticalBakery4,
-  VerticalCatering1,
-  VerticalCatering2,
-  VerticalCatering3,
-  VerticalCatering4,
-  Gallery4,
-  Gallery5,
-  Gallery6,
-  Gallery7,
-} from "../../assets";
+import { useRef, useState, useEffect } from "react";
+import axios from "axios";
 import styles from "./OurVerticals.module.css";
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useNavigate } from "react-router-dom";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function OurVerticals() {
@@ -28,6 +15,10 @@ function OurVerticals() {
   const cateringref = useRef(null);
   const bakeryref = useRef(null);
   const restaurantref = useRef(null);
+
+  const [CateringImages, setCateringImages] = useState([]);
+  const [BakeryImages, setBakeryImages] = useState([]);
+  const [RestaurantImages, setRestaurantImages] = useState([]);
   const navigate = useNavigate();
 
   useGSAP(() => {
@@ -99,36 +90,41 @@ function OurVerticals() {
   const [image2, setImage2] = useState(0);
   const [image3, setImage3] = useState(0);
 
-  const CateringImages = [
-    VerticalCatering1,
-    VerticalCatering2,
-    VerticalCatering3,
-    VerticalCatering4,
-  ];
+ useEffect(() => {
+  const fetchImages = async () => {
+    try {
+      const [cateringRes, bakeryRes, restaurantRes] = await Promise.all([
+        axios.get("http://localhost:5000/api/upload-photo?category=catering"),
+        axios.get("http://localhost:5000/api/upload-photo?category=bakery"),
+        axios.get("http://localhost:5000/api/upload-photo?category=restaurant"),
+      ]);
 
-  const BakeryImages = [
-    VerticalBakery1,
-    VerticalBakery2,
-    VerticalBakery3,
-    VerticalBakery4,
-  ];
+      setCateringImages(cateringRes.data.photos || []);
+      setBakeryImages(bakeryRes.data.photos || []);
+      setRestaurantImages(restaurantRes.data.photos || []);
+    } catch (err) {
+      console.error("Error fetching images:", err);
+    }
+  };
 
-  const RestaurantImages = [Gallery4, Gallery5, Gallery6, Gallery7];
+  fetchImages();
+}, []);
 
   return (
     <>
       <div className={styles.verticals}>
         <h3>Our Verticals</h3>
+
+        {/* Catering */}
         <div style={{ overflow: "hidden" }}>
           <h2 ref={h11ref}>Catering</h2>
         </div>
-
         <div ref={cateringref} className={styles.one}>
-          <img className={styles.mainImg} src={CateringImages[image1]} alt="" />
+          <img className={styles.mainImg} src={CateringImages[image1]?.image_url} alt="" />
           <div className={styles.content}>
             <div className={styles.text}>
               <p>
-                We are speciallists in doing authentic multi cuisine food with
+                We are specialists in doing authentic multi-cuisine food with
                 focus on quality & customer satisfaction. We understand the
                 taste palette of the customer and our expert team certainly
                 knows how to use the best combination of spices to bring out the
@@ -140,12 +136,13 @@ function OurVerticals() {
               <div>
                 {CateringImages.map((img, idx) => (
                   <img
+                    key={idx}
+                    src={img.image_url}
+                    alt="Catering"
+                    onClick={() => setImage1(idx)}
                     style={{
                       border: idx === image1 ? "3px solid #c08a64" : "",
                     }}
-                    src={img}
-                    alt=""
-                    onClick={() => setImage1(idx)}
                   />
                 ))}
               </div>
@@ -153,6 +150,7 @@ function OurVerticals() {
           </div>
         </div>
 
+        {/* Bakery */}
         <div style={{ overflow: "hidden" }}>
           <h2 ref={h12ref} style={{ marginTop: "100px" }}>
             B2B Bakery
@@ -165,9 +163,8 @@ function OurVerticals() {
           platforms. We also cater to institutions like flight kitchens,
           multiplexes and hospitals.
         </p>
-
         <div ref={bakeryref} className={styles.one}>
-          <img className={styles.mainImg} src={BakeryImages[image2]} alt="" />
+          <img className={styles.mainImg} src={BakeryImages[image2]?.image_url} alt="" />
           <div className={styles.content}>
             <div className={styles.text}>
               <p>
@@ -183,12 +180,13 @@ function OurVerticals() {
               <div>
                 {BakeryImages.map((img, idx) => (
                   <img
+                    key={idx}
+                    src={img.image_url}
+                    alt="Bakery"
+                    onClick={() => setImage2(idx)}
                     style={{
                       border: idx === image2 ? "3px solid #c08a64" : "",
                     }}
-                    src={img}
-                    alt=""
-                    onClick={() => setImage2(idx)}
                   />
                 ))}
               </div>
@@ -196,6 +194,7 @@ function OurVerticals() {
           </div>
         </div>
 
+        {/* Restaurant */}
         <div style={{ overflow: "hidden" }}>
           <h2 ref={h13ref} style={{ marginTop: "100px" }}>
             Restaurant
@@ -207,13 +206,8 @@ function OurVerticals() {
           dishes, crafted with premium ingredients and served in an elegant
           ambiance.
         </p>
-
         <div ref={restaurantref} className={styles.one}>
-          <img
-            className={styles.mainImg}
-            src={RestaurantImages[image3]}
-            alt=""
-          />
+          <img className={styles.mainImg} src={RestaurantImages[image3]?.image_url} alt="" />
           <div className={styles.content}>
             <div className={styles.text}>
               <p>
@@ -229,12 +223,13 @@ function OurVerticals() {
               <div>
                 {RestaurantImages.map((img, idx) => (
                   <img
+                    key={idx}
+                    src={img.image_url}
+                    alt="Restaurant"
+                    onClick={() => setImage3(idx)}
                     style={{
                       border: idx === image3 ? "3px solid #c08a64" : "",
                     }}
-                    src={img}
-                    alt=""
-                    onClick={() => setImage3(idx)}
                   />
                 ))}
               </div>
@@ -247,3 +242,4 @@ function OurVerticals() {
 }
 
 export default OurVerticals;
+

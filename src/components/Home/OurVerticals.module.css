@@ -10,6 +10,7 @@
   font-style: italic;
   padding: 40px 100px;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .verticals h3 {
@@ -27,12 +28,14 @@
   font-style: italic;
   display: flex;
   font-size: 40px;
+  line-height: 1.2; 
 }
 
 .verticals p {
   margin-top: 30px;
   width: 80%;
   text-align: center;
+  word-break: break-word;
 }
 
 .verticals button {
@@ -44,6 +47,7 @@
   background: #c08a64;
   border: none;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .verticals .mobileContent {
@@ -55,6 +59,8 @@
   width: 70vw;
   aspect-ratio: 16/9;
   object-fit: cover;
+  max-width: 100%; /* ✨ added */
+  height: auto; 
 }
 
 .verticals .content {
@@ -62,6 +68,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  flex-wrap: wrap; 
 }
 
 .verticals .text {
@@ -71,6 +78,8 @@
   justify-content: center;
   flex-direction: column;
   width: 35vw;
+  padding: 10px; /* ✨ added */
+  box-sizing: border-box; 
 }
 
 .verticals .one {
@@ -78,6 +87,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap; /* ✨ added */
+  gap: 10px; 
 }
 
 .verticals .text p {
@@ -89,6 +100,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
+  flex-wrap: wrap; /* ✨ added */
 }
 
 .verticals .images div {
@@ -108,21 +120,10 @@
   object-fit: cover;
 }
 
-.verticals::before {
-  /* content: "";
-    width: 100vw;
-    height: 40vh;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    background: white; */
-}
+/* Removed empty .verticals::before ruleset */
 
 /* Tablet and below adjustments */
 @media (max-width: 1000px) {
-  .verticals::before {
-    /* height: 45vh; */
-  }
 
   .verticals {
     padding: 30px 50px;
@@ -209,12 +210,7 @@
     margin-top: 20px;
   }
 
-  .verticals::before {
-    /* height: 30vh; */
-  }
 }
-
-/* Extra small devices */
 @media (max-width: 480px) {
   .verticals {
     padding: 15px;
@@ -239,19 +235,17 @@
     margin-top: 15px;
   }
 
-  .verticals::before {
-    /* height: 25vh; */
-  }
 }
 
 .OurVerticals h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
   font-style: italic;
   color: #fff;
   text-align: center;
   margin-bottom: 2rem;
+}
+.OurVerticals .card {
+  max-width: 100%; /* ✨ added */
+  overflow-wrap: break-word; /* ✨ added */
 }
 
 .OurVerticals .card h2 {

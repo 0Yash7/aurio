@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react";// or wherever it is
 import Hero from "../components/Home/Hero";
 import HeroSlider from "../components/Home/HeroSlider";
 import WhyUs from "../components/Home/WhyUs";

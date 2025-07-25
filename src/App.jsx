@@ -6,6 +6,8 @@ import Services from "./Pages/Services";
 import Contact from "./Pages/Contact"; // Ensure you import the Contact page here
 import ValuesPage from "./Pages/Values";
 import Menu from "./Pages/Menu";
+import AdminUpload from "./Pages/AdminUpload";
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/values" element={<ValuesPage />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/admin-upload" element={<AdminUpload />} />
         </Route>
       </Routes>
     </div>

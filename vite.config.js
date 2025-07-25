@@ -6,6 +6,13 @@ import { compression } from "vite-plugin-compression2";
 export default defineConfig({
   server: {
     host: true,
+    proxy: {
+      "/api": {
+        target: "http://localhost:5000", // Replace with your backend port if different
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
   plugins: [
     react(),
