@@ -1,217 +1,218 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
-  Typography, Box, TextField, Button,
-  MenuItem, Grid, Card, CardMedia, CardContent,
-  IconButton, CircularProgress, Stack
+  Box, Typography, TextField, MenuItem, Card, CardMedia,
+  IconButton, CircularProgress, Snackbar, Alert, Grid, Button, Stack, Paper
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 
 const categories = ['restaurant', '24x7', 'bakery', 'catering'];
 
-export default function AdminUpload() {
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [photo, setPhoto] = useState(null);
+const AdminUpload = () => {
+  const [category, setCategory] = useState('');
+  const [files, setFiles] = useState([]);
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [deleting, setDeleting] = useState(null);
+  const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
-  const fetchPhotos = async () => {
-    if (!selectedCategory) return;
+  const fetchPhotos = useCallback(async () => {
+    if (!category) return;
     setLoading(true);
     try {
-      const res = await axios.get(`/api/upload-photo?category=${selectedCategory}`);
+      const res = await axios.get(`/api/upload-photo?category=${category}`);
       setPhotos(res.data.photos);
     } catch (err) {
-      console.error('❌ Error fetching photos:', err);
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
-  };
+  }, [category]);
 
   useEffect(() => {
     fetchPhotos();
-  }, [selectedCategory]);
+  }, [fetchPhotos]);
+
+  const onDrop = (acceptedFiles) => {
+    setFiles(acceptedFiles);
+  };
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { 'image/*': [] },
+    multiple: true,
+  });
 
   const handleUpload = async () => {
-    if (!photo || !selectedCategory) return alert('Please select a photo and category');
-
+    if (!category || files.length === 0) return;
+    setUploading(true);
     const formData = new FormData();
-    formData.append('photo', photo);
-    formData.append('category', selectedCategory);
+    formData.append('category', category);
+    files.forEach(file => formData.append('photos', file));
 
     try {
-      setLoading(true);
       await axios.post('/api/upload-photo', formData);
-      setPhoto(null);
-      await fetchPhotos();
-      alert('✅ Photo uploaded successfully');
+      setSnackbar({ open: true, message: 'Photos uploaded successfully!', severity: 'success' });
+      setFiles([]);
+      fetchPhotos();
     } catch (err) {
-      console.error('❌ Upload failed:', err);
-      alert('Upload failed');
+      console.error(err);
+      setSnackbar({ open: true, message: 'Upload failed', severity: 'error' });
+    } finally {
+      setUploading(false);
     }
-    setLoading(false);
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Are you sure you want to delete this photo?')) return;
-
+    setDeleting(id);
     try {
-      setLoading(true);
       await axios.delete(`/api/upload-photo/${id}`);
-      await fetchPhotos();
+      setSnackbar({ open: true, message: 'Photo deleted successfully!', severity: 'success' });
+      fetchPhotos();
     } catch (err) {
-      console.error('❌ Delete failed:', err);
+      console.error(err);
+      setSnackbar({ open: true, message: 'Delete failed', severity: 'error' });
+    } finally {
+      setDeleting(null);
     }
-    setLoading(false);
   };
-return (
-  <Box p={{ xs: 2, md: 4 }}>
-    <Typography variant="h4" fontWeight="bold" gutterBottom>
-      🖼️ Admin Photo Upload Panel
-    </Typography>
 
-    {/* Upload Section */}
-    <Card sx={{ mb: 5, p: 4, boxShadow: 3, borderRadius: 4 }}>
-      <Typography variant="h6" fontWeight="bold" mb={2}>
-        Upload New Photo
+  return (
+    <Box p={4} sx={{ maxWidth: 1300, mx: 'auto' }}>
+      <Typography variant="h4" fontWeight={600} gutterBottom>
+        Admin Image Upload — Aureo
       </Typography>
-      <Stack
-        direction={{ xs: 'column', sm: 'row' }}
-        spacing={3}
-        alignItems="center"
-        justifyContent="flex-start"
-        flexWrap="wrap"
-      >
+
+      <Paper elevation={2} sx={{ p: 3, mb: 4 }}>
         <TextField
           select
+          fullWidth
           label="Select Category"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          sx={{ minWidth: 220 }}
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          sx={{ mb: 3 }}
         >
           {categories.map((cat) => (
             <MenuItem key={cat} value={cat}>
-              {cat}
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
             </MenuItem>
           ))}
         </TextField>
 
-        <Button
-          variant="outlined"
-          component="label"
-          sx={{ borderStyle: 'dashed' }}
-        >
-          📸 Choose Image
-          <input
-            type="file"
-            hidden
-            accept="image/*"
-            onChange={(e) => setPhoto(e.target.files[0])}
-          />
-        </Button>
-
-        {photo && (
-          <Box sx={{ ml: 2 }}>
-            <Typography variant="caption" color="text.secondary">
-              Preview:
-            </Typography>
+        {category && (
+          <>
             <Box
-              component="img"
-              src={URL.createObjectURL(photo)}
-              alt="Preview"
+              {...getRootProps()}
               sx={{
-                width: 60,
-                height: 60,
-                objectFit: 'cover',
+                border: '2px dashed #ccc',
                 borderRadius: 2,
-                border: '1px solid #eee',
-                mt: 1,
-              }}
-            />
-          </Box>
-        )}
-
-        <Button
-          variant="contained"
-          color="primary"
-          disabled={!photo || !selectedCategory}
-          onClick={handleUpload}
-          sx={{ minWidth: 120 }}
-        >
-          Upload
-        </Button>
-      </Stack>
-    </Card>
-
-    {/* Loading Spinner */}
-    {loading && (
-      <Box display="flex" justifyContent="center" my={4}>
-        <CircularProgress />
-      </Box>
-    )}
-
-    {/* Gallery Section */}
-    <Typography variant="h6" fontWeight="bold" mb={2} mt={4}>
-      Uploaded Photos
-    </Typography>
-    {photos.length === 0 ? (
-      <Typography variant="body1" align="center" color="text.secondary" mt={5}>
-        No images uploaded yet.
-      </Typography>
-    ) : (
-      <Grid container spacing={4}>
-        {photos.map((img) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={img.id}>
-            <Card
-              sx={{
-                height: '100%',
-                boxShadow: 2,
-                borderRadius: 3,
+                p: 4,
+                textAlign: 'center',
+                backgroundColor: isDragActive ? '#f0f0f0' : '#fafafa',
+                mb: 2,
                 transition: '0.3s',
-                '&:hover': { boxShadow: 6 },
               }}
             >
-              <CardMedia
-                component="img"
-                image={img.image_url}
-                alt="Uploaded"
-                sx={{
-                  height: 180,
-                  objectFit: 'cover',
-                  borderTopLeftRadius: 12,
-                  borderTopRightRadius: 12,
-                }}
-              />
-              <CardContent
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  px: 2,
-                  py: 1,
-                }}
-              >
-                <Typography
-                  variant="body2"
-                  sx={{
-                    textTransform: 'capitalize',
-                    fontWeight: 'medium',
-                    bgcolor: '#f0f0f0',
-                    px: 1.2,
-                    py: 0.5,
-                    borderRadius: 1,
-                  }}
-                >
-                  {img.category}
+              <input {...getInputProps()} />
+              <CloudUploadIcon sx={{ fontSize: 50, color: '#888' }} />
+              <Typography variant="body1" sx={{ mt: 1 }}>
+                {isDragActive ? 'Drop files here...' : 'Drag & drop images here or click to select'}
+              </Typography>
+              {files.length > 0 && (
+                <Typography variant="caption" color="text.secondary">
+                  {files.length} file(s) selected for upload
                 </Typography>
-                <IconButton onClick={() => handleDelete(img.id)} color="error">
-                  <DeleteIcon />
-                </IconButton>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    )}
-  </Box>
-);
-}
+              )}
+            </Box>
+
+            {/* Preview Selected Images */}
+            {files.length > 0 && (
+              <Grid container spacing={2} sx={{ mb: 2 }}>
+                {files.map((file, index) => (
+                  <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
+                    <Card>
+                      <CardMedia
+                        component="img"
+                        height="120"
+                        image={URL.createObjectURL(file)}
+                        alt="Preview"
+                      />
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            )}
+
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleUpload}
+              disabled={uploading || files.length === 0}
+            >
+              {uploading ? <CircularProgress size={24} /> : 'Upload Selected'}
+            </Button>
+          </>
+        )}
+      </Paper>
+
+      {category && (
+        <>
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Uploaded Images — <strong>{category.toUpperCase()}</strong>
+          </Typography>
+
+          {loading ? (
+            <CircularProgress />
+          ) : (
+            <Grid container spacing={2}>
+              {photos.map((photo) => (
+                <Grid item xs={12} sm={6} md={4} lg={3} key={photo.id}>
+                  <Card sx={{ height: '100%', position: 'relative' }}>
+                    <CardMedia
+                      component="img"
+                      height="180"
+                      image={photo.image_url}
+                      alt="Uploaded"
+                    />
+                    <Stack direction="row" justifyContent="flex-end" p={1}>
+                      <IconButton
+                        onClick={() => handleDelete(photo.id)}
+                        disabled={deleting === photo.id}
+                      >
+                        {deleting === photo.id ? (
+                          <CircularProgress size={20} />
+                        ) : (
+                          <DeleteIcon />
+                        )}
+                      </IconButton>
+                    </Stack>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          )}
+        </>
+      )}
+
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={3000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          severity={snackbar.severity}
+          onClose={() => setSnackbar({ ...snackbar, open: false })}
+          sx={{ width: '100%' }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
+    </Box>
+  );
+};
+
+export default AdminUpload;

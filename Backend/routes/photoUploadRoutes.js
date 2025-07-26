@@ -10,40 +10,46 @@ const validCategories = ['restaurant', '24x7', 'bakery', 'catering'];
 
 
 // ✅ POST /api/upload-photo
-router.post('/', upload.single('photo'), async (req, res) => {
+router.post('/', upload.array('photos'), async (req, res) => {
   try {
     const category = req.body.category;
-    const file = req.file;
+    const files = req.files;
 
     if (!category || !validCategories.includes(category)) {
       return res.status(400).json({ error: 'Invalid or missing category' });
     }
 
-    if (!file) {
-      return res.status(400).json({ error: 'Photo file is required' });
+    if (!files || files.length === 0) {
+      return res.status(400).json({ error: 'No photo files provided' });
     }
 
-    const result = await cloudinary.uploader.upload(file.path, {
-      folder: `photo_uploads/${category}`,
-    });
+    const uploadedPhotos = [];
 
-    await pool.query(
-      'INSERT INTO photos (category, image_url) VALUES (?, ?)',
-      [category, result.secure_url]
-    );
+    for (const file of files) {
+      const result = await cloudinary.uploader.upload(file.path, {
+        folder: `photo_uploads/${category}`,
+      });
 
-    fs.unlinkSync(file.path);
+      await pool.query(
+        'INSERT INTO photos (category, image_url) VALUES (?, ?)',
+        [category, result.secure_url]
+      );
+
+      uploadedPhotos.push(result.secure_url);
+      fs.unlinkSync(file.path);
+    }
 
     res.json({
-      message: '✅ Photo uploaded successfully',
-      category,
-      image_url: result.secure_url,
+      message: '✅ Photos uploaded successfully',
+      uploaded_count: uploadedPhotos.length,
+      urls: uploadedPhotos,
     });
   } catch (err) {
-    console.error('❌ Upload Error:', err);
+    console.error('❌ Multi-upload Error:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 
 // ✅ GET /api/upload-photo?category=restaurant
 router.get('/', async (req, res) => {
